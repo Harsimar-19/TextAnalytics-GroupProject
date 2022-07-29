@@ -18,7 +18,7 @@ WordCloudFig = None
 
 
 #Defining Functions
-def LoadImportantLibraries
+def LoadImportantLibraries():
     import regex as re
     import matplotlib.pyplot as plt
     import altair as alt
