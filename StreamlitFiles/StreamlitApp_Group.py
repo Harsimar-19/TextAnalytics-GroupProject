@@ -1,5 +1,18 @@
 import streamlit as st
 import pandas as pd
+import regex as re
+import matplotlib.pyplot as plt
+import altair as alt
+import string
+from wordcloud import WordCloud
+from sklearn.feature_extraction.text import CountVectorizer
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+analyzer = SentimentIntensityAnalyzer()
+from nltk import sent_tokenize
+from nltk import word_tokenize
+from nltk import ngrams
+from nltk import corpus
+
 
 
 
@@ -17,21 +30,7 @@ WordList = None
 WordCloudFig = None
 
 
-#Defining Functions
-def LoadImportantLibraries():
-    
-    import regex as re
-    import matplotlib.pyplot as plt
-    import altair as alt
-    import string
-    from wordcloud import WordCloud
-    from sklearn.feature_extraction.text import CountVectorizer
-    from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-    analyzer = SentimentIntensityAnalyzer()
-    from nltk import sent_tokenize
-    from nltk import word_tokenize
-    from nltk import ngrams
-    from nltk import corpus
+#Defining Functions=
 def GetRequiredData(dataset_name):
     if dataset_name == "Dataset":
         return ('write',FetchedDataset)
