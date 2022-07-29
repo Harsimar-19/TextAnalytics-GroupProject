@@ -1,16 +1,5 @@
 import streamlit as st
-import pandas as pd
-import regex as re
-import matplotlib.pyplot as plt
-import altair as alt
-import string
-from wordcloud import WordCloud
-from sklearn.feature_extraction.text import CountVectorizer
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-from nltk import sent_tokenize
-from nltk import word_tokenize
-from nltk import ngrams
-from nltk import corpus
+
 
 
 st.markdown("<h1 style='text-align: center; color: purple;'>Text Analytics Group Assignment</h1>", unsafe_allow_html=True)
@@ -28,6 +17,19 @@ WordCloudFig = None
 
 
 #Defining Functions
+def LoadImportantLibraries():
+    import pandas as pd
+    import regex as re
+    import matplotlib.pyplot as plt
+    import altair as alt
+    import string
+    from wordcloud import WordCloud
+    from sklearn.feature_extraction.text import CountVectorizer
+    from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+    from nltk import sent_tokenize
+    from nltk import word_tokenize
+    from nltk import ngrams
+    from nltk import corpus
 def GetRequiredData(dataset_name):
     if dataset_name == "Dataset":
         return ('write',FetchedDataset)
@@ -177,6 +179,7 @@ analyzer = SentimentIntensityAnalyzer()
 uploadColumn = st.sidebar.file_uploader("Upload Dataset", type=["csv"])
 dataset_name = None
 if uploadColumn is not None:
+    LoadImportantLibraries()
     file_details = {"filename":uploadColumn.name, "filetype":uploadColumn.type,
                             "filesize":uploadColumn.size}
     st.write(file_details)
