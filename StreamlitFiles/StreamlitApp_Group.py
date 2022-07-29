@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 
 
@@ -18,7 +19,7 @@ WordCloudFig = None
 
 #Defining Functions
 def LoadImportantLibraries():
-    import pandas as pd
+    
     import regex as re
     import matplotlib.pyplot as plt
     import altair as alt
@@ -26,6 +27,7 @@ def LoadImportantLibraries():
     from wordcloud import WordCloud
     from sklearn.feature_extraction.text import CountVectorizer
     from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+    analyzer = SentimentIntensityAnalyzer()
     from nltk import sent_tokenize
     from nltk import word_tokenize
     from nltk import ngrams
@@ -175,7 +177,7 @@ def FetchHistogramForSentiment():
 
 sentiment_columns = None
 file_details = None
-analyzer = SentimentIntensityAnalyzer()
+analyzer = None
 uploadColumn = st.sidebar.file_uploader("Upload Dataset", type=["csv"])
 dataset_name = None
 if uploadColumn is not None:
