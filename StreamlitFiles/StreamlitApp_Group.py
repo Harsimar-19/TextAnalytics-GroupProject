@@ -7,7 +7,6 @@ import string
 from wordcloud import WordCloud
 from sklearn.feature_extraction.text import CountVectorizer
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-analyzer = SentimentIntensityAnalyzer()
 from nltk import sent_tokenize
 from nltk import word_tokenize
 from nltk import ngrams
@@ -176,7 +175,7 @@ def FetchHistogramForSentiment():
 
 sentiment_columns = None
 file_details = None
-analyzer = None
+analyzer = SentimentIntensityAnalyzer()
 uploadColumn = st.sidebar.file_uploader("Upload Dataset", type=["csv"])
 dataset_name = None
 if uploadColumn is not None:
