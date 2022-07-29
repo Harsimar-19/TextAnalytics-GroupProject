@@ -179,7 +179,6 @@ analyzer = SentimentIntensityAnalyzer()
 uploadColumn = st.sidebar.file_uploader("Upload Dataset", type=["csv"])
 dataset_name = None
 if uploadColumn is not None:
-    LoadImportantLibraries()
     file_details = {"filename":uploadColumn.name, "filetype":uploadColumn.type,
                             "filesize":uploadColumn.size}
     st.write(file_details)
